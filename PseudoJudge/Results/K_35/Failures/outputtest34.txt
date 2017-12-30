@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1
+	at lab122.main(lab122.java:157)

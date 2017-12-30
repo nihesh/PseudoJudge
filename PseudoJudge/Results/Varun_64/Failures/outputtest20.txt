@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.NullPointerException
+	at itAintOverTillItsOver$MinHeap.startTimeOfThisTrack(itAintOverTillItsOver.java:507)
+	at itAintOverTillItsOver$MinHeap.heapify(itAintOverTillItsOver.java:458)
+	at itAintOverTillItsOver$MinHeap.extractMin(itAintOverTillItsOver.java:435)
+	at itAintOverTillItsOver.main(itAintOverTillItsOver.java:278)

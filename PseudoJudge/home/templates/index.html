@@ -1,0 +1,126 @@
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<title>PseudoJudge</title>
+</head>
+<body>
+<center>
+<br><br><h2>PseudoJudge for DSA Lab</h2>
+<form action="result/" method="POST" id="file" enctype="multipart/form-data">{% csrf_token %}
+<br><br>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="name" name="name" required="">
+    <label class="mdl-textfield__label" for="sample3">Name</label>
+</div>
+<br>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <select class="mdl-textfield__input" type="text" id="program" name="program">
+    <option value="Lab12_normal">Lab12 (Normal)</option>			<!-- change in two places -->
+    <option value="Lab12_bonus">Lab12 (Bonus)</option>				<!-- change in two places -->
+    </select>
+</div>
+<br>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="float:center;">
+    <input value="3" class="mdl-textfield__input" type="text" id="timelimit" name="timelimit" pattern="[1-5]"list="choicesuggestions" autocomplete="off" required disabled>
+    <span class="mdl-textfield__error">Valid Inputs - 1 to 5</span>
+    <label class="mdl-textfield__label" for="timelimit" id="timelimit2">Timelimit (in seconds)</label>
+    <datalist id="choicesuggestions">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+    </datalist>
+</div><br><br>
+<style>
+	.btn-file {
+	    position: relative;
+	    overflow: hidden;
+	}
+	.btn-file input[type=file] {
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    min-width: 100%;
+	    min-height: 100%;
+	    font-size: 100px;
+	    text-align: right;
+	    filter: alpha(opacity=0);
+	    opacity: 0;
+	    outline: none;
+	    background: white;
+	    cursor: inherit;
+	    display: block;
+	}
+</style>
+<script>
+function validate()
+      {
+        var level = document.getElementById("timelimit").value;
+        if(document.getElementById("code").files.length == 0){
+        	alert("Upload the code");
+        	document.getElementById("file").action="";
+        }
+        else{
+	        if(level<=5 && level>=1)
+	        {
+	          document.getElementById("file").action="result/";
+	          alert("Please wait for 2-5 minutes for the code to simulate. Kindly do not hit refresh/run button again. Credits to Snehal for verifying testcases");
+	        }
+	        else
+	        {
+	          document.getElementById("file").action="";
+	          alert("Timelimit should lie between 1 to 5 seconds");
+	        }  
+	    }
+      }
+</script>
+
+<input type="file" id="code" name="code">
+<br><br>	
+<button type="submit" onclick="validate()" class="mdl-button mdl-js-button mdl-button--raised">
+  Run
+</button>
+</form><br>
+</center>
+<center>
+<h3><b>POINTS TO NOTE</b></h3></center>
+<ul>
+<li>Eclipse users will have to make changes to their code so that it can be compiled from the terminal directly using java compiler. Ex: Remove "package filename;" 
+</li>
+<li>
+Result.txt shows the test result: "Success" - timelimit and testcases passed; "Wrong Answer" - Atleast one of the testcases failed; "Time limit exceeded!" - TLE 
+</li>
+<li>
+Incase of "Wrong Answer", the obtained output, actual input and the actual output will be shown for the first test case that failed.
+</li>
+</ul>
+<br>
+<center>
+<h3><b>LAB12 STATISTICS</b></h3></center><br><br>
+<pre><h5><b>  Normal Constraint</b></h5></pre>
+<ul>
+<li>Successful submissions : <b>{{s1}}</b>
+</li>
+<li>Wrong answer : <b>{{f1}}</b> 
+</li>
+<li>Time Limit Exceeded : <b>{{t1}}</b>
+</li>
+</ul>
+<br>
+<pre><h5><b>  Bonus Constraint</b></h5></pre>
+<ul>
+<li>Successful submissions : <b>{{s2}}</b>
+</li>
+<li>Wrong answer : <b>{{f2}}</b> 
+</li>
+<li>Time Limit Exceeded : <b>{{t2}}</b>
+</li>
+</ul>
+<br>
+
+<br>
+</body>
+</html>

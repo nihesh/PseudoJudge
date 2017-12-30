@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.NullPointerException
+	at itAintOverTillItsOver$MinHeap.extractMin(itAintOverTillItsOver.java:415)
+	at itAintOverTillItsOver.main(itAintOverTillItsOver.java:268)

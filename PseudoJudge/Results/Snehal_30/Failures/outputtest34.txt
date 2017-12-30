@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1
+	at Graph.dijkstra(Lab12.java:229)
+	at Lab12.main(Lab12.java:439)

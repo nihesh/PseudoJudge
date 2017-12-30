@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at java.util.Arrays.copyOfRange(Arrays.java:3664)
+	at java.lang.String.<init>(String.java:207)
+	at java.lang.String.substring(String.java:1933)
+	at Lab12.timediff(Lab12.java:460)
+	at Lab12.main(Lab12.java:398)

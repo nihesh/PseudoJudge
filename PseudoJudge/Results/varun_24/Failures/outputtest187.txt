@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.NullPointerException
+	at itAintOverTillItsOver$MinHeap.updateVertexDistance(itAintOverTillItsOver.java:403)
+	at itAintOverTillItsOver.main(itAintOverTillItsOver.java:239)
